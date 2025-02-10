@@ -1,0 +1,16 @@
+# Changes here will be overwritten by Copier
+_commit: v0.1.5-19-g3d41d26
+_src_path: ..\linkml-project-copier
+add_example: 'Yes'
+copyright_year: '2025'
+email: david.linke@catalysis.de
+full_name: David Linke
+gh_action_docs_preview: 'No'
+gh_action_pypi: 'Yes'
+github_org: dalito
+license: MIT
+project_description: Test instance of linkml-copier-template.
+project_name: test-linkml-project-copier
+project_slug: test_linkml_project_copier
+use_schemasheets: 'No'
+
