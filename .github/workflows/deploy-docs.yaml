@@ -49,6 +49,5 @@ jobs:
       - name: Build documentation
         # TODO: Check if this way of combining doc sources is the best way to do it.
         run: |
-          touch docs/.nojekyll
           just gendoc
           mkd-gh-deploy
