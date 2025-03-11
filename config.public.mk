@@ -9,11 +9,7 @@
 LINKML_SCHEMA_NAME="test_linkml_project_copier"
 LINKML_SCHEMA_AUTHOR="David Linke <david.linke@catalysis.de>"
 LINKML_SCHEMA_DESCRIPTION="Test instance of linkml-copier-template."
-LINKML_SCHEMA_SOURCE_PATH="src/test_linkml_project_copier/schema/test_linkml_project_copier.yaml"
-LINKML_SCHEMA_GOOGLE_SHEET_MODULE=" personinfo_enums"
-LINKML_SCHEMA_GOOGLE_SHEET_ID=""
-LINKML_SCHEMA_GOOGLE_SHEET_TABS="personinfo enums"
-LINKML_USE_SCHEMASHEETS=No
+LINKML_SCHEMA_SOURCE_DIR="src/test_linkml_project_copier/schema"
 
 ###### linkml generator variables, used by justfile
 
