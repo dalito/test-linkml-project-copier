@@ -1,5 +1,5 @@
 # Auto generated from test_linkml_project_copier.yaml by pythongen.py version: 0.0.1
-# Generation date: 2025-03-11T22:12:29
+# Generation date: 2025-04-06T22:54:55
 # Schema: test-linkml-project-copier
 #
 # id: https://w3id.org/dalito/test-linkml-project-copier

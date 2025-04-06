@@ -4,30 +4,30 @@
 
 Test instance of linkml-copier-template.
 
-## Website
+## Documentation Website
 
 [https://dalito.github.io/test-linkml-project-copier](https://dalito.github.io/test-linkml-project-copier)
 
 ## Repository Structure
 
-* [examples/](examples/) - example data
+* [docs/](docs/) - mkdocs-managed documentation
+  * [elements/](docs/elements/) - generated schema documentation
+* [examples/](examples/) - Examples of using the schema
 * [project/](project/) - project files (these files are auto-generated, do not edit)
 * [src/](src/) - source files (edit these)
-  * [test_linkml_project_copier](src/test_linkml_project_copier)
-    * [schema](src/test_linkml_project_copier/schema) -- LinkML schema
+  * [my_awesome_schema](src/my_awesome_schema)
+    * [schema/](src/my_awesome_schema/schema) -- LinkML schema
       (edit this)
-    * [datamodel](src/test_linkml_project_copier/datamodel) -- generated
+    * [datamodel/](src/test_linkml_project_copier/datamodel) -- generated
       Python datamodel
 * [tests/](tests/) - Python tests
+  * [data/](tests/data) - Example data
 
-## Developer Documentation
+## Developer Tools
 
-The pre-defined commands are written for the command runner [just](https://github.com/casey/just/).
-Use the `just` commands to generate project artefacts:
-* `just` or `just --list`: list all pre-defined tasks
-* `just site`: (re-)create everything
-* `just deploy`: deploys site
+There are several pre-defined command-recipes available.
+They are written for the command runner [just](https://github.com/casey/just/). To list all pre-defined commands, run `just` or `just --list`.
 
 ## Credits
 
-This project was created from the template [linkml-project-copier](https://github.com/dalito/linkml-project-copier).
+This project uses the template [linkml-project-copier](https://github.com/dalito/linkml-project-copier) published as [doi:10.5281/zenodo.15163584](https://doi.org/10.5281/zenodo.15163584).
