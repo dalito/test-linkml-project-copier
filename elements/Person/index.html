@@ -241,9 +241,9 @@
 <p>URI: <a href="https://w3id.org/dalito/test-linkml-project-copier/Person">test_linkml_project_copier:Person</a></p>
 <div class="mermaid"> classDiagram
     class Person
-    click Person href "../Person"
+    click Person href "../Person/"
       NamedThing &lt;|-- Person
-        click NamedThing href "../NamedThing"
+        click NamedThing href "../NamedThing/"
 
       Person : age_in_years
 
@@ -262,8 +262,10 @@
 
 
 
-    Person --&gt; "0..1" PersonStatus : vital_status
-    click PersonStatus href "../PersonStatus"
+
+        Person --&gt; "0..1" PersonStatus : vital_status
+        click PersonStatus href "../PersonStatus/"
+
 
 
 
