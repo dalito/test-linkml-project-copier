@@ -3,7 +3,7 @@ from __future__ import annotations
 import re
 from datetime import date
 from enum import Enum
-from typing import Any, ClassVar, Dict, List, Optional
+from typing import Any, ClassVar, Optional
 
 from pydantic import BaseModel, ConfigDict, Field, RootModel, field_validator
 
@@ -25,7 +25,7 @@ class ConfiguredBaseModel(BaseModel):
 
 
 class LinkMLMeta(RootModel):
-    root: Dict[str, Any] = {}
+    root: dict[str, Any] = {}
     model_config = ConfigDict(frozen=True)
 
     def __getattr__(self, key: str):
@@ -84,12 +84,18 @@ linkml_meta = LinkMLMeta(
 
 
 class PersonStatus(str, Enum):
-    # the person is living
     ALIVE = "ALIVE"
-    # the person is deceased
+    """
+    the person is living
+    """
     DEAD = "DEAD"
-    # the vital status is not known
+    """
+    the person is deceased
+    """
     UNKNOWN = "UNKNOWN"
+    """
+    the vital status is not known
+    """
 
 
 class NamedThing(ConfiguredBaseModel):
@@ -231,11 +237,12 @@ class Person(NamedThing):
         pattern = re.compile(r"^\S+@[\S+\.]+\S+")
         if isinstance(v, list):
             for element in v:
-                if isinstance(v, str) and not pattern.match(element):
-                    raise ValueError(f"Invalid primary_email format: {element}")
-        elif isinstance(v, str):
-            if not pattern.match(v):
-                raise ValueError(f"Invalid primary_email format: {v}")
+                if isinstance(element, str) and not pattern.match(element):
+                    err_msg = f"Invalid primary_email format: {element}"
+                    raise ValueError(err_msg)
+        elif isinstance(v, str) and not pattern.match(v):
+            err_msg = f"Invalid primary_email format: {v}"
+            raise ValueError(err_msg)
         return v
 
 
@@ -251,7 +258,7 @@ class PersonCollection(ConfiguredBaseModel):
         }
     )
 
-    entries: Optional[List[Person]] = Field(
+    entries: Optional[list[Person]] = Field(
         default=None,
         json_schema_extra={
             "linkml_meta": {"alias": "entries", "domain_of": ["PersonCollection"]}

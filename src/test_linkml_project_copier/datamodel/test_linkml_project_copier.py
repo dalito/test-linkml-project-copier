@@ -1,21 +1,17 @@
 # Auto generated from test_linkml_project_copier.yaml by pythongen.py version: 0.0.1
-# Generation date: 2025-04-06T22:54:55
+# Generation date: 2025-08-02T12:08:59
 # Schema: test-linkml-project-copier
 #
 # id: https://w3id.org/dalito/test-linkml-project-copier
 # description: Test instance of linkml-copier-template.
 # license: MIT
 
-import dataclasses
 import re
 from dataclasses import dataclass
-from typing import Any, ClassVar, Dict, List, Optional, Union
+from typing import Any, ClassVar, Optional, Union
 
 from linkml_runtime.linkml_model.meta import EnumDefinition, PermissibleValue
 from linkml_runtime.utils.curienamespace import CurieNamespace
-from linkml_runtime.utils.dataclass_extensions_376 import (
-    dataclasses_init_fn_with_kwargs,
-)
 from linkml_runtime.utils.enumerations import EnumDefinitionImpl
 from linkml_runtime.utils.metamodelcore import empty_dict
 from linkml_runtime.utils.slot import Slot
@@ -26,9 +22,6 @@ from linkml_runtime.utils.metamodelcore import URIorCURIE, XSDDate
 
 metamodel_version = "1.7.0"
 version = None
-
-# Overwrite dataclasses _init_fn to add **kwargs in __init__
-dataclasses._init_fn = dataclasses_init_fn_with_kwargs
 
 # Namespaces
 PATO = CurieNamespace("PATO", "http://purl.obolibrary.org/obo/PATO_")
@@ -60,7 +53,7 @@ class NamedThing(YAMLRoot):
     A generic grouping for any identifiable entity
     """
 
-    _inherited_slots: ClassVar[List[str]] = []
+    _inherited_slots: ClassVar[list[str]] = []
 
     class_class_uri: ClassVar[URIRef] = SCHEMA["Thing"]
     class_class_curie: ClassVar[str] = "schema:Thing"
@@ -71,7 +64,7 @@ class NamedThing(YAMLRoot):
     name: Optional[str] = None
     description: Optional[str] = None
 
-    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+    def __post_init__(self, *_: str, **kwargs: Any):
         if self._is_empty(self.id):
             self.MissingRequiredField("id")
         if not isinstance(self.id, NamedThingId):
@@ -92,7 +85,7 @@ class Person(NamedThing):
     Represents a Person
     """
 
-    _inherited_slots: ClassVar[List[str]] = []
+    _inherited_slots: ClassVar[list[str]] = []
 
     class_class_uri: ClassVar[URIRef] = TEST_LINKML_PROJECT_COPIER["Person"]
     class_class_curie: ClassVar[str] = "test_linkml_project_copier:Person"
@@ -105,7 +98,7 @@ class Person(NamedThing):
     age_in_years: Optional[int] = None
     vital_status: Optional[Union[str, "PersonStatus"]] = None
 
-    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+    def __post_init__(self, *_: str, **kwargs: Any):
         if self._is_empty(self.id):
             self.MissingRequiredField("id")
         if not isinstance(self.id, PersonId):
@@ -134,7 +127,7 @@ class PersonCollection(YAMLRoot):
     A holder for Person objects
     """
 
-    _inherited_slots: ClassVar[List[str]] = []
+    _inherited_slots: ClassVar[list[str]] = []
 
     class_class_uri: ClassVar[URIRef] = TEST_LINKML_PROJECT_COPIER["PersonCollection"]
     class_class_curie: ClassVar[str] = "test_linkml_project_copier:PersonCollection"
@@ -143,11 +136,11 @@ class PersonCollection(YAMLRoot):
 
     entries: Optional[
         Union[
-            Dict[Union[str, PersonId], Union[dict, Person]], List[Union[dict, Person]]
+            dict[Union[str, PersonId], Union[dict, Person]], list[Union[dict, Person]]
         ]
     ] = empty_dict()
 
-    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+    def __post_init__(self, *_: str, **kwargs: Any):
         self._normalize_inlined_as_list(
             slot_name="entries", slot_type=Person, key_name="id", keyed=True
         )
@@ -248,7 +241,7 @@ slots.personCollection__entries = Slot(
     domain=None,
     range=Optional[
         Union[
-            Dict[Union[str, PersonId], Union[dict, Person]], List[Union[dict, Person]]
+            dict[Union[str, PersonId], Union[dict, Person]], list[Union[dict, Person]]
         ]
     ],
 )
